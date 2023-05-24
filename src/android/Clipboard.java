@@ -11,6 +11,7 @@ import android.content.Context;
 import android.content.ClipboardManager;
 import android.content.ClipData;
 import android.content.ClipDescription;
+import android.widget.Toast;
 
 public class Clipboard extends CordovaPlugin {
 
@@ -24,6 +25,8 @@ public class Clipboard extends CordovaPlugin {
 
         if (action.equals(actionCopy)) {
             try {
+                Context context = cordova.getActivity().getApplicationContext();
+                Toast.makeText(context, "Hey this is a popup", Toast.LENGTH_SHORT).show();
                 String text = args.getString(0);
                 ClipData clip = ClipData.newPlainText("Text", text);
 
